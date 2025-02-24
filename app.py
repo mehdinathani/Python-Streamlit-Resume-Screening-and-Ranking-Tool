@@ -6,6 +6,12 @@ from utils.ranking import score_resume
 from utils.logger import log_action  # Using our MongoDB logger
 from utils.ai_feedback import generate_feedback
 
+
+st.set_page_config(
+    page_title="RankMyResume - AI Resume Screening & ATS Scoring",  # Browser tab title
+    page_icon="📄",  # You can also use an emoji or a custom favicon URL
+    layout="wide"
+)
 # Inject custom CSS for improved styling
 st.markdown("""
     <style>
@@ -38,6 +44,8 @@ st.markdown("""
 
 # Display a banner image at the top (replace URL with your own image if available)
 st.image("https://cdn-ilblhgp.nitrocdn.com/iNguFFPdcQkxwgnKqNudeMEbsKyWoDgp/assets/images/optimized/rev-36d96be/www.recruiterslineup.com/wp-content/uploads/2022/06/resume-screening-software.png", use_container_width=True)
+
+
 
 
 
@@ -146,3 +154,25 @@ else:
                 st.balloons()
             else:
                 st.write("No Resumes Processed.")
+
+
+# Footer with social media links
+st.markdown("""
+    <hr>
+    <div style="text-align: center;">
+        <p style="font-size: 16px;">👨‍💻 Developed by <strong>Mehdi Abbas Nathani</strong></p>
+        <p>📢 Connect with me:</p>
+        <a href="https://www.linkedin.com/in/mehdinathani/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="30">
+        </a>
+        &nbsp;&nbsp;
+        <a href="https://github.com/mehdinathani" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="30">
+        </a>
+        &nbsp;&nbsp;
+        <a href="https://www.fiverr.com/sellers/mehdinathani/" target="_blank">
+            <img src="https://cdn.worldvectorlogo.com/logos/fiverr-1.svg" width="30">
+        </a>
+    </div>
+""", unsafe_allow_html=True)
+st.success("Thank you for using RankMyResume! 🚀")
