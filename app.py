@@ -40,10 +40,21 @@ st.markdown("""
 st.image("https://cdn-ilblhgp.nitrocdn.com/iNguFFPdcQkxwgnKqNudeMEbsKyWoDgp/assets/images/optimized/rev-36d96be/www.recruiterslineup.com/wp-content/uploads/2022/06/resume-screening-software.png", use_container_width=True)
 
 
-st.sidebar.title("Resume Screening and Ranking Tool")
-page = st.sidebar.selectbox("Choose a Page", ["Resume Scoring", "ATS Scoring"])
 
-if page == "Resume Scoring":
+# Sidebar with navigation buttons
+st.sidebar.title("Navigation")
+if st.sidebar.button("Resume Scoring", use_container_width=True, key="resume_scoring"):
+    st.session_state.page = "Resume Scoring"
+
+if st.sidebar.button("ATS Scoring", use_container_width=True, key="ats_scoring"):
+    st.session_state.page = "ATS Scoring"
+
+
+# Set up session state for navigation (only if not already set)
+if "page" not in st.session_state:
+    st.session_state.page = "Resume Scoring"
+
+if st.session_state.page == "Resume Scoring":
     st.markdown('<h1 class="main-title">Resume Screening and Ranking Tool</h1>', unsafe_allow_html=True)
     st.write("Upload your PDF or DOCX resumes and get a ranked list of candidates based on skills.")
 
@@ -84,7 +95,7 @@ if page == "Resume Scoring":
             else:
                 st.write("No Resumes Processed.")
 
-elif page == "ATS Scoring":
+else:
     st.markdown('<h1 class="main-title">ATS Scoring</h1>', unsafe_allow_html=True)
     st.write("Paste a Job Description to compute an ATS score for each resume.")
 
