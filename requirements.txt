@@ -1,0 +1,7 @@
+streamlit
+pandas
+PyPDF2
+python-docx
+python-dotenv
+pymongo
+pillow  # Ensures smooth image handling if needed
